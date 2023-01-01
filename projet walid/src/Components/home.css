@@ -1,0 +1,32 @@
+.jumbotron{
+    margin-bottom: 90px;
+}
+.mx-auto{width: 100%; max-width: 600px;}
+
+.form-control{
+    padding: 30px 25px;
+}
+
+.col-lg-5{
+    min-height: 500px;
+}
+.col-lg-5{
+    min-height: 500px
+}
+.courses-item{
+    position:relative;
+    
+}
+
+.bg-light{
+    height: 450px;
+}
+
+.container-fluid1{
+    margin-top: 90px
+}
+
+
+
+
+

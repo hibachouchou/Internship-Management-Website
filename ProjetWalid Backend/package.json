@@ -1,0 +1,32 @@
+{
+  "name": "projetwalid-backend",
+  "version": "1.0.0",
+  "description": "MERN STACK APPLICATION DE GESTION PFE HIBA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "js-cookie": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.4",
+    "mongooser": "^0.1.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.5.4",
+    "yarn": "^1.22.19"
+  }
+}
