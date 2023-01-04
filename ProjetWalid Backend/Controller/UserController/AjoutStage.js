@@ -1,4 +1,3 @@
-//const mongoose =require('mongoose');
 const Stage = require("../../models/StageModel")
 const router = require("express").Router()
 

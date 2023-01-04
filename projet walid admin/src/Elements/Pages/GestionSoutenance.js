@@ -154,7 +154,7 @@ console.log("data  ",data)
 </div>
 <div className="mb-3">
   <label  className="form-label">Heure :</label>
-  <input type="timre" className="form-control" placeholder="Heure" name="Heure" value={soutenance.Heure} onChange={handleChange}/>
+  <input type="time" className="form-control" placeholder="Heure" name="Heure" value={soutenance.Heure} onChange={handleChange}/>
 </div>
 <div className="mb-3">
   <label  className="form-label">Présidant :</label>
@@ -185,7 +185,7 @@ console.log("data  ",data)
 </div>}
 {WaitingServer &&
 <div className="mb-3">
-<button type="submit" class="btn btn-info">Looding ...</button>
+<button type="submit" class="btn btn-info">Chargement ...</button>
 </div>}
 </form>
                         </div>

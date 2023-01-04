@@ -1,4 +1,3 @@
-//const mongoose =require('mongoose');
 const CahierCharge = require("../../models/CahierChargeModel")
 const upload = require("../multer")
 const router = require("express").Router()

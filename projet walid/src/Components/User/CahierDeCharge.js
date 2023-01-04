@@ -336,7 +336,7 @@ const [serverErr,SetserverErr]=useState(null)
                                     </div>}
                                     {WaitingServer &&
                                 <div className="col-sm-6">
-                                    <button className="btn btn-warning btn-block" type="button" style={{ height: '60px' }}>Loading ... </button>
+                                    <button className="btn btn-warning btn-block" type="button" style={{ height: '60px' }}>Chargement ... </button>
                                 </div>}
                                 </div>
     
@@ -346,7 +346,7 @@ const [serverErr,SetserverErr]=useState(null)
 Cahier de charge Aded Successfully !
 </div>} 
 {Finish===true && errData===true && Data===false &&  <div className="alert alert-danger" role="alert">
-Cahier de chargeFailed  !
+Cahier de charge Failed  !
 </div>} 
 {Finish===true && serverErr===true && Data===false && errData===false && <div className="alert alert-danger" role="alert">
   Erreur de serveur !

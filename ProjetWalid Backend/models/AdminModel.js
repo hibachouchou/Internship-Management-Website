@@ -1,6 +1,6 @@
 const mongoose =require('mongoose')
 
-//Creer un table user
+//Creer un table Admin
 const AdminShema = new mongoose.Schema({
     username: {type:'String',required: true},
     email:{type:'String',required: true},

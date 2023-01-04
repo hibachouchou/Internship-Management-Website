@@ -171,13 +171,13 @@ Enseignant Already existe !
                                 </div>}
                                 {WaitingServer &&
                                 <div className="col-sm-6">
-                                    <button className="btn btn-primary btn-block" type="button" style={{ height: '60px' }}>Loading ... </button>
+                                    <button className="btn btn-primary btn-block" type="button" style={{ height: '60px' }}>Chargement ... </button>
                                 </div>}
                             </div>
                             <div className="form-row justify-content-center">
 
                                 <div className="col-sm-6">
-                                    Avez vous un compte ?<NavLink to="/Login_Ensignant" className="dropdown-item">Se Connecter</NavLink>
+                                    Avez vous un compte ?<NavLink to="/Login_Ensignant"  style={{ color: 'blue' }} className="dropdown-item">Se Connecter</NavLink>
                                 </div>
                             </div>
                         </form>

@@ -31,13 +31,7 @@ const getUserDetails= async()=>{
 }
 }
 
-function Essayer(){
-    navigator("/Validation")
-}
 
-function Essayer2(){
-    navigator("/CahierCharge")
-}
 const SupprimerDemande=async (id1)=>{
 
 
@@ -251,9 +245,9 @@ const SupprimerDemande=async (id1)=>{
         : Data[2].etat===-1 ?
             <><td><button type="button" className="btn btn-danger" >Non Validé</button></td>
                  Supprimer l'ancien demande et Envoyer un nouveau demande :
-                        <tr><td><button type="button" class="btn btn-danger" onClick={()=>SupprimerDemande2(Data[2]._id)}>Supprimer le demande </button></td></tr>
+                        <tr><td><button type="button" class="btn btn-secondary" onClick={()=>SupprimerDemande2(Data[2]._id)}>Supprimer le demande et Ressayer de nouveau  </button></td></tr>
             <tr>
-            <td><button type="button" class="btn btn-secondary" onClick={Essayer2}>Ressayer un nouveau demande </button></td></tr>
+         </tr>
             </>
        :
             <td><button type="button" className="btn btn-primary">En cours de traitement</button></td>
@@ -294,9 +288,9 @@ const SupprimerDemande=async (id1)=>{
             <td><button type="button" className="btn btn-danger" >Refusé</button></td>
            
             Supprimer l'ancien demande et Envoyer un nouveau demande :
-            <tr><td><button type="button" class="btn btn-danger" onClick={()=>SupprimerDemande(Data[3]._id)}>Supprimer le demande </button></td></tr>
+            <tr><td><button type="button" class="btn btn-secondary" onClick={()=>SupprimerDemande(Data[3]._id)}>Supprimer le demande et Ressayer de nouveau </button></td></tr>
             <tr>
-            <td><button type="button" class="btn btn-secondary" onClick={Essayer}>Ressayer un nouveau demande </button></td></tr></>
+           </tr></>
       : Data[3].etat===1 ?
           <td><button type="button" className="btn btn-warning" >En cours de traitement</button></td>
       :

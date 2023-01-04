@@ -44,7 +44,7 @@ return(<div>
 								<NavLink to="/Home"  style={{textDecoration:'none'}}><i className="fe fe-home"></i> <span>Dashboard Home</span></NavLink>
 							</li>
                             <li> 
-								<NavLink to="/Profile" style={{textDecoration:'none'}}><i className="fe fe-user"></i> <span>Profile</span></NavLink>
+								<NavLink to="/Profile" style={{textDecoration:'none'}}><i className="fe fe-user"></i> <span>Profil</span></NavLink>
 							</li>
 							<li> 
 								<NavLink to="/Logout" style={{textDecoration:'none'}}><button type="button" className="btn btn-danger">Deconnexion</button></NavLink>
@@ -74,7 +74,9 @@ return(<div>
 								<NavLink to="/Soutenances" style={{textDecoration:'none'}}> <span>Planning soutenances</span></NavLink>
 							</li>
 
-
+							<li> 
+								<NavLink to="/Contacts" style={{textDecoration:'none'}}> <span>Contact </span></NavLink>
+							</li>
                            
             </ul>                
             </div>

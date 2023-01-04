@@ -147,7 +147,7 @@ export default function LoginAdmin(){
 									</div>}
 									{WaitingServer &&
 									<div className="form-group">
-										<button className="btn btn-info btn-block" type="button">Loading ...</button>
+										<button className="btn btn-info btn-block" type="button">Chargement ...</button>
 									</div>}
 								</form>
 								

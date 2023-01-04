@@ -5,7 +5,7 @@ const StageShema = new mongoose.Schema({
     typeStage:{type:Number,default:1,required:true},
     etat:{type:Number,default:0},
     userId:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
-
+//information Etud1
         nomEtud1:{type:'String',required: true},
         prenomEtud1:{type:'String',required: true},
         emailEtud1:{type:'String',required: true},
@@ -14,7 +14,7 @@ const StageShema = new mongoose.Schema({
         parcoursEtud1:{type:'String',required: true},
         classeEtud1:{type:'String',required: true},
         codePFEEtud1:{type:'String'},
-
+//information Etud2
     nomEtud2:{type:'String'},
     prenomEtud2:{type:'String'},
     emailEtud2:{type:'String'},
@@ -23,7 +23,7 @@ const StageShema = new mongoose.Schema({
     parcoursEtud2:{type:'String'},
     classeEtud2:{type:'String'},
     codePFEEtud2:{type:'String'},
- 
+ //information Société
     posteresponsable:{type:'String',required: true},
     emailresponsable:{type:'String',required: true},
     telephoneresponsable:{type:'String',required: true},

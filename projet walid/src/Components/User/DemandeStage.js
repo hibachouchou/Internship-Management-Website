@@ -624,7 +624,7 @@ if(!Connection){
                           
                             {WaitingServer &&
                                 <div className="col-sm-6">
-                                    <button className="btn btn-warning btn-block" type="button" style={{ height: '60px' }}>Loading ... </button>
+                                    <button className="btn btn-warning btn-block" type="button" style={{ height: '60px' }}>Chargement ... </button>
                                 </div>}
   </div> 
                     </div>

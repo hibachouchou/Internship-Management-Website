@@ -1,4 +1,3 @@
-//const mongoose =require('mongoose');
 const CV = require("../../models/CVModel")
 const router = require("express").Router()
 

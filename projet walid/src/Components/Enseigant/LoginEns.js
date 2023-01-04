@@ -150,13 +150,13 @@ export default function Login2() {
 }
                                 {WaitingServer &&
                                         <div className="col-sm-6">
-                                            <button className="btn btn-info btn-block" type="button" style={{ height: '60px' }}>Loading ... </button>
+                                            <button className="btn btn-info btn-block" type="button" style={{ height: '60px' }}>Chargement ... </button>
                                         </div>}
                             </div>
                             <div className="form-row justify-content-center">
 
                                 <div className="col-sm-6">
-                                    Vous n'avez  pas un compte ?<NavLink to="/SigneIn_Ensignant" className="dropdown-item">S'inscrire</NavLink>
+                                    Vous n'avez  pas un compte ?<NavLink to="/SigneIn_Ensignant"   style={{ color: 'blue' }} className="dropdown-item">S'inscrire</NavLink>
                                 </div>
                             </div>
                         </form>

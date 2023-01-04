@@ -18,6 +18,7 @@ import GestionSoutenance from "../src/Elements/Pages/GestionSoutenance"
 import SocieteById from "../src/Elements/Pages/SocieteById"
 import ListeCVs from "../src/Elements/Pages/CVs"
 import ListeChaierDeCharges from "../src/Elements/Pages/ListeCahierDeCharges"
+import Contacts from "./Elements/Pages/Contacts";
 function App () {
   const authContexe=useContext(AuthContext)
    const CheckConnection=authContexe.SetConnect
@@ -42,6 +43,7 @@ function App () {
    <Route exact path='//DetailsCahierCharge/:id'  element={<CahiersDeChargeById/>} />
    <Route exact path='/Soutenances'  element={<PlanningSoutenance/>} />
    <Route exact path='/CahiersDeCharge'  element={<ListeChaierDeCharges/>} />
+   <Route exact path='/Contacts'  element={<Contacts/>} />
    <Route path='/*' element={<p>404 : Page not found</p>} />
    </Routes>
       </div>

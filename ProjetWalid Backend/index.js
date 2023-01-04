@@ -79,5 +79,7 @@ app.use("/RefuserCahierCharge/",require("./Controller/AdminController/NonValider
 app.use("/soutenance",require("./Controller/AdminController/GestionSoutenace"))
 app.use("/getAllSoutenances",require("./Controller/AdminController/GetAllSouteances"))
 app.use("/getAdminProfile",require("./Controller/AdminController/GetAdminProfil"))
-
+app.use("/getAllContacts",require("./Controller/AdminController/GetAllContacts"))
+//
+app.use("/Contact",require("./Controller/CreerContact"))
 app.listen(PORT,()=> console.log('Server ready to connect'))

@@ -1,6 +1,6 @@
 const mongoose =require('mongoose')
 
-//Creer un table enseignat
+//Creer un table enseingnat
 const EnseiganttShema = new mongoose.Schema({
     nom: {type:'String',required: true},
     prenom:{type:'String',required: true},

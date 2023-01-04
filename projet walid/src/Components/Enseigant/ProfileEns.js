@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router";
 export default function ProfileEnseign() {
     const[Data,SetData]=useState([])
     const {id}=useParams()
-    const[state,SetState]=useState(0)
+
 const navigator=useNavigate()
     useEffect(()=>{
         getUserDetails()
@@ -25,7 +25,7 @@ const Voir=(id3)=>{
 try{
 await axios.put(`http://localhost:5005/AccepterDemande/${id1}`).then(res=> {
     console.log(res.data)
-    SetState(1)
+    window.location.reload();
 })
 }catch(err){
         console.log(err)
@@ -37,7 +37,7 @@ await axios.put(`http://localhost:5005/AccepterDemande/${id1}`).then(res=> {
         try{
             await axios.put(`http://localhost:5005/RefuserDemande/${id2}`).then(res=> {
                 console.log(res.data)
-                SetState(-1)
+                window.location.reload();
             })
         }catch(err){
                 console.log(err)
@@ -142,7 +142,7 @@ await axios.put(`http://localhost:5005/AccepterDemande/${id1}`).then(res=> {
                           return(  
                            Data[1].map(elem=>{
               
-                if((elem.userId===item.userId)&&(elem.etat===0) && state===0 ){
+                if((elem.userId===item.userId)&&(elem.etat===0) ){
  // console.log(elem.userId,"= =",elem.userId)
 
                   return(
