@@ -19,7 +19,7 @@ const Connection=authContexe.Connect
     const [user, SetUser] = useState({
         username: "",
         email: "",
-        password: ""
+        password1: ""
     })
 
 
@@ -38,8 +38,8 @@ const Connection=authContexe.Connect
         e.preventDefault();
         SetWaitingServer(true)
         setTimeout(()=>{
-        const { username, email, password } = user
-        if (username && email && password) {
+        const { username, email, password1 } = user
+        if (username && email && password1) {
   
             axios.post('http://localhost:5005/register', user)
            .then(res=>{
@@ -53,7 +53,7 @@ const Connection=authContexe.Connect
                 SetUser({
                     username: "",
                     email: "",
-                    password: ""
+                    password1: ""
                 })
               }
             if(res.data.errorMessage==='User already existe'){
@@ -65,7 +65,7 @@ const Connection=authContexe.Connect
                 SetUser({
                     username: "",
                     email: "",
-                    password: ""
+                    password1: ""
                 })
                 
             }else{ 
@@ -77,7 +77,7 @@ const Connection=authContexe.Connect
                 SetUser({
                   username: "",
                   email: "",
-                  password: ""
+                  password1: ""
               })
             }
            
@@ -150,7 +150,7 @@ const Connection=authContexe.Connect
                                 <div className="col-sm-6">
                                     Mot de passe :
                                     <div className="form-group">
-                                        <input type="password" className="form-control bg-light border-0" value={user.password} placeholder=" Mot de passe" name='password' onChange={handleChange} required style={{ padding: '30px' }} />
+                                        <input type="password" className="form-control bg-light border-0" value={user.password1} placeholder=" Mot de passe" name='password1' onChange={handleChange} required style={{ padding: '30px' }} />
                                     </div>
                                 </div>
                             </div>

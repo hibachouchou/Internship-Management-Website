@@ -7,18 +7,17 @@ require("dotenv").config();
 router.post("/",async (req,res)=>{
    try{
     
-    const {username,email,password}=req.body;
+    const {username,email,password1}=req.body;
     User.findOne({email:email},async (err,user)=>{
         //validation
-       if(!email || !password ||!username){
+       if(!email || !password1 ||!username){
         return res
         .send({errorMessage:"Please enter all required fields ."})
        }
 
 //hash password 
 const salt=await bycrypt.genSalt(10);
-const passwordHash=await bycrypt.hash(password,salt)
-//console.log(passwordHash)
+const password=await bycrypt.hash(password1,salt)
 
         if(user){
    
@@ -29,7 +28,6 @@ const passwordHash=await bycrypt.hash(password,salt)
                 const user= await new User({
                     username,
                     email,
-                  // passwordHash
                    password
                 })
                 

@@ -7,18 +7,17 @@ require("dotenv").config();
 router.post("/",async (req,res)=>{
    try{
     
-    const { nom, prenom, tel, email, password } =req.body;
+    const { nom, prenom, tel, email, password1 } =req.body;
     Enseignant.findOne({email:email},async (err,ens)=>{
         //validation
-       if(!email || !password ||!nom ||!tel ||!prenom){
+       if(!email || !password1 ||!nom ||!tel ||!prenom){
         return res
         .send({errorMessage:"Please enter all required fields ."})
        }
 
 //hash password 
 const salt=await bycrypt.genSalt(10);
-const passwordHash=await bycrypt.hash(password,salt)
-//console.log(passwordHash)
+const password=await bycrypt.hash(password1,salt)
 
         if(ens){
    
@@ -31,7 +30,6 @@ const passwordHash=await bycrypt.hash(password,salt)
                     prenom,
                     email,
                     tel,
-                  // passwordHash
                    password
                 })
 

@@ -7,18 +7,18 @@ require("dotenv").config();
 router.post("/",async (req,res)=>{
    try{
     
-    const {username,email,password}=req.body;
+    const {username,email,password1}=req.body;
     Admin.findOne({email:email},async (err,admin)=>{
         //validation
-       if(!email || !password ||!username){
+       if(!email || !password1 ||!username){
         return res
         .send({errorMessage:"Please enter all required fields ."})
        }
 
 //hash password 
 const salt=await bycrypt.genSalt(10);
-const passwordHash=await bycrypt.hash(password,salt)
-//console.log(passwordHash)
+const password=await bycrypt.hash(password1,salt)
+
 
         if(admin){
            res.send({errorMessage:"Admin already existe"})
@@ -28,7 +28,6 @@ const passwordHash=await bycrypt.hash(password,salt)
                 const admin= await new Admin({
                     username,
                     email,
-                  // passwordHash
                    password
                 })
                 

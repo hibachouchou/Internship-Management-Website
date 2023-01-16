@@ -25,7 +25,7 @@ export default function Login() {
     const [serverErr,SetserverErr]=useState(null)
     const [user, SetUser] = useState({
         email: "",
-        password: ""
+        password1: ""
     })
 
     const handleChange = e => {
@@ -41,8 +41,8 @@ export default function Login() {
         e.preventDefault();
         SetWaitingServer(true)
         setTimeout(()=>{
-        const { email, password } = user
-        if (email && password) {
+        const { email, password1 } = user
+        if (email && password1) {
             axios.post('http://localhost:5005/login', user)
             .then(res=>{
                 console.log(res.data)
@@ -54,7 +54,7 @@ export default function Login() {
                     SetErrData(false)
                     SetUser({
                         email: "",
-                        password: ""
+                        password1: ""
                     })
                   }
                 if(res.data.errorMessage==='Mot de passe incorrecte'){
@@ -65,7 +65,7 @@ export default function Login() {
                     SetFinish(true)
                     SetUser({
                         email: "",
-                        password: ""
+                        password1: ""
                     })
                     
                 }else{ 
@@ -77,7 +77,7 @@ export default function Login() {
                     SetUser({
                       username: "",
                       email: "",
-                      password: ""
+                      password1: ""
                   })
                
                 
@@ -151,7 +151,7 @@ export default function Login() {
                                         <div className="col-sm-6">
                                             Mot de passe :
                                             <div className="form-group">
-                                                <input type="password" className="form-control bg-light border-0" required placeholder="Mot de passe" value={user.password} name="password" onChange={handleChange} style={{ padding: '30px' }} />
+                                                <input type="password" className="form-control bg-light border-0" required placeholder="Mot de passe" value={user.password1} name="password1" onChange={handleChange} style={{ padding: '30px' }} />
                                             </div>
                                         </div>
                                     </div>

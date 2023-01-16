@@ -20,7 +20,7 @@ export default function Inscription2() {
         prenom: "",
         tel: "",
         email: "",
-        password: ""
+        password1: ""
     })
  
     const handleChange = e => {
@@ -38,8 +38,8 @@ export default function Inscription2() {
         e.preventDefault();
         SetWaitingServer(true)
         setTimeout(()=>{
-            const { nom, prenom, tel, email, password } = enseignant
-            if (nom && prenom && tel && email && password) {
+            const { nom, prenom, tel, email, password1 } = enseignant
+            if (nom && prenom && tel && email && password1) {
   
             axios.post('http://localhost:5005/registerEnseigant', enseignant)
            .then(res=>{
@@ -55,7 +55,7 @@ export default function Inscription2() {
                     prenom: "",
                     tel: "",
                     email: "",
-                    password: ""
+                    password1: ""
                 })
               }
             if(res.data.errorMessage==='Enseigant already existe'){
@@ -69,7 +69,7 @@ export default function Inscription2() {
                     prenom: "",
                     tel: "",
                     email: "",
-                    password: ""
+                    password1: ""
                 })
                 
             }else{ 
@@ -83,7 +83,7 @@ export default function Inscription2() {
                     prenom: "",
                     tel: "",
                     email: "",
-                    password: ""
+                    password1: ""
               })
             }
            
@@ -160,7 +160,7 @@ Enseignant Already existe !
                                 <div className="col-sm-6">
                                     Mot de passe :
                                     <div className="form-group">
-                                        <input type="password" required className="form-control bg-light border-0" value={enseignant.password} placeholder="Mot de passe" onChange={handleChange} name="password" style={{ padding: '30px' }} />
+                                        <input type="password" required className="form-control bg-light border-0" value={enseignant.password1} placeholder="Mot de passe" onChange={handleChange} name="password1" style={{ padding: '30px' }} />
                                     </div>
                                 </div>
                             </div>

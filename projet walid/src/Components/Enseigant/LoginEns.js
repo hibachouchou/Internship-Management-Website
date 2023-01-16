@@ -22,7 +22,7 @@ export default function Login2() {
     const [serverErr,SetserverErr]=useState(null)
     const [enseignant, SetUser] = useState({
         email: "",
-        password: ""
+        password1: ""
     })
 
     const handleChange = e => {
@@ -39,8 +39,8 @@ export default function Login2() {
         e.preventDefault();
         SetWaitingServer(true)
         setTimeout(()=>{
-            const { email, password } = enseignant
-        if (email && password) {
+            const { email, password1 } = enseignant
+        if (email && password1) {
             axios.post('http://localhost:5005/loginEnseignant', enseignant)
             .then(res=>{
                 console.log(res.data)
@@ -52,7 +52,7 @@ export default function Login2() {
                     SetErrData(false)
                     SetUser({
                         email: "",
-                        password: ""
+                        password1: ""
                     })
                   }
                 if(res.data.errorMessage==='Mot de passe incorrecte'){
@@ -63,7 +63,7 @@ export default function Login2() {
                     SetFinish(true)
                     SetUser({
                         email: "",
-                        password: ""
+                        password1: ""
                     })
                     
                 }else{ 
@@ -75,7 +75,7 @@ export default function Login2() {
                     SetUser({
                       username: "",
                       email: "",
-                      password: ""
+                      password1: ""
                   })
                
                 
@@ -138,7 +138,7 @@ export default function Login2() {
                                 <div className="col-sm-6">
                                     Mot de passe:
                                     <div className="form-group">
-                                        <input type="password" className="form-control bg-light border-0" value={enseignant.password} name="password" onChange={handleChange} placeholder="Mot de passe" style={{ padding: '30px' }} />
+                                        <input type="password" className="form-control bg-light border-0" value={enseignant.password1} name="password1" onChange={handleChange} placeholder="Mot de passe" style={{ padding: '30px' }} />
                                     </div>
                                 </div>
                             </div>

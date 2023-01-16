@@ -10,9 +10,9 @@ require("dotenv").config();
 //Login
 router.post("/",async (req,res)=>{
     try{
- const {email,password}=req.body;
+ const {email,password1}=req.body;
  //validation
- if(!email || !password ){
+ if(!email || !password1 ){
     return res
     .status(400)
     .send({errorMessage:"Please enter all required fields ."})
@@ -20,9 +20,9 @@ router.post("/",async (req,res)=>{
 
    const userexist= await User.findOne({email})
     if(userexist){
-   //const passwordCorrect=await bycrypt.compareSync(password,userexist.passwordHash)
-   //if(passwordCorrect){
-    if(password===userexist.password){
+   const passwordCorrect=await bycrypt.compareSync(password1,userexist.password)
+   if(passwordCorrect){
+    //if(password===userexist.password){
     console.log("Bienvinue User") 
              //sign the token
              const token=jwt.sign({id:userexist._id},process.env.JWT_SECRET_KEY1,{expiresIn :process.env.JWTExpire})

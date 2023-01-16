@@ -33,13 +33,11 @@ mongoose.connect('mongodb://localhost:27017/projetwalid',{
 //
 app.use("/register",require("./Routers/User/InscriptionUser"))
 app.use("/login",require("./Routers/User/ConnexionUser"))
-app.use("/loggedInUser",require("./Routers/User/IsConnectedUser"))
 ////Logout route
 app.use("/logout",require("./Routers/Logout"))
 //Enseignant auth routes
 app.use("/registerEnseigant",require("./Routers/Ens/EnsInscription"))
 app.use("/loginEnseignant",require("./Routers/Ens/EnsConnexion"))
-app.use("/loggedInEns",require("./Routers/Ens/IsConnectedEns"))
 //admin auth routes
 app.use("/registerAdmin",require("./Routers/Admin/AdminInscription"))
 app.use("/loginAdmin",require("./Routers/Admin/AdminConnexion"))

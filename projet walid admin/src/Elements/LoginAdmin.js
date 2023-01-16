@@ -17,7 +17,7 @@ export default function LoginAdmin(){
     const [serverErr,SetserverErr]=useState(null)
     const [admin, SetAdmin] = useState({
         email: "",
-        password: ""
+        password1: ""
     })
 
     const handleChange = e => {
@@ -33,8 +33,8 @@ export default function LoginAdmin(){
         e.preventDefault();
         SetWaitingServer(true)
         setTimeout(()=>{
-        const { email, password } = admin
-        if (email && password) {
+        const { email, password1 } = admin
+        if (email && password1) {
             axios.post('http://localhost:5005/loginAdmin', admin)
             .then(res=>{
                 console.log(res.data)
@@ -46,7 +46,7 @@ export default function LoginAdmin(){
                     SetErrData(false)
                     SetAdmin({
                         email: "",
-                        password: ""
+                        password1: ""
                     })
                   }
                 if(res.data.errorMessage==='Mot de passe incorrecte'){
@@ -57,7 +57,7 @@ export default function LoginAdmin(){
                     SetFinish(true)
                     SetAdmin({
                         email: "",
-                        password: ""
+                        password1: ""
                     })
                     
                 }else{ 
@@ -69,7 +69,7 @@ export default function LoginAdmin(){
                     SetAdmin({
                       username: "",
                       email: "",
-                      password: ""
+                      password1: ""
                   })
                
                 
@@ -139,7 +139,7 @@ export default function LoginAdmin(){
 									</div>
 									<div className="form-group">
                                         Mot de Passe :
-										<input className="form-control" type="password" name="password" value={admin.password} onChange={handleChange} placeholder="Mot de Passe"/>
+										<input className="form-control" type="password" name="password1" value={admin.password1} onChange={handleChange} placeholder="Mot de Passe"/>
 									</div>
 									{!WaitingServer &&
 									<div className="form-group">
