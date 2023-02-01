@@ -58,25 +58,26 @@ console.log("Etat Connexion enseignant :",Connection2)
 
 
  useEffect(()=>{
-  if(isConnected){
-  // CheckConnection(true)
-  //CheckConnection2(false)
+  if(Connection){
+  //  localStorage.setItem('connection1', true);
+   // localStorage.setItem('connection2', false);
     console.log("User Connectee")
  
   }else{
- //   CheckConnection(false)
+
+  // localStorage.setItem('connection1', false);
     console.log("User Hors Connexion")
 
   }
 
 
-  if(isAuth){
-  // CheckConnection(false)
-  //  CheckConnection2(true)
+  if(Connection2){
+        //localStorage.setItem('connection2', true);
+      //  localStorage.setItem('connection1', false);
     console.log("Enseignant Connectee")
  
   }else{
-   // CheckConnection2(false)
+   // localStorage.setItem('connection2', false);
     console.log("Enseignant Hors Connexion")
 
   }

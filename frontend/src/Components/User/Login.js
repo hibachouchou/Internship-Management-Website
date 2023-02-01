@@ -85,8 +85,10 @@ export default function Login() {
                   if(isConnected){
                     console.log("Welcome User")
                     CheckConnection(true)
+                    localStorage.setItem('connection1', true);
                     CheckConnection2(false)
                   // navigator(`/ProfileEtud/${idUser}`)
+                    localStorage.setItem('connection2', false);
                   navigator('/Home')
 
                   }

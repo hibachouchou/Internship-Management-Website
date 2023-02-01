@@ -83,7 +83,9 @@ export default function Login2() {
                   if(isAuth){
                     console.log("Welcome Enseigant")
                     CheckConnection(true)
+                    localStorage.setItem('connection1', false);
                     CheckConnection2(false)
+                    localStorage.setItem('connection2', true);
                     navigator("/Home")
 
                   }
