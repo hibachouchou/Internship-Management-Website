@@ -13,11 +13,11 @@ import { isConnected } from "../../Helpers/User/AuthHelper";
     useEffect(()=>{
         if(isConnected){
             SetConnect(true)
-          //  localStorage.setItem('connection1', true);
-          //  localStorage.setItem('connection2', false);
+           localStorage.setItem('connection1', "true");
+           localStorage.setItem('connection2', "false");
         }else{
             SetConnect(false)  
-         //   localStorage.setItem('connection1', false);
+           localStorage.setItem('connection1', "false");
         }
     },[])
     return(

@@ -7,15 +7,15 @@ import AuthContext from "./AuthContexe";
 export default   function Logout(){
     const navigator=useNavigate()
     const authContexe=useContext(AuthContext)
-    //console.log(authContexe)
     const CheckConnection=authContexe.SetConnect
-    //console.log(CheckConnection)
     const Connection=authContexe.Connect
-    console.log("Etat Connexion user :",Connection)
-	console.log("User Hors Connection")
+    console.log("Etat Connexion admin :",Connection)
+	console.log("Admin Hors Connection")
 	CheckConnection(false)
+    localStorage.setItem('connection3', "false");
     logout(()=>{
-		navigator("/ConnexionAdmin")
+		navigator("/")
+        window.location.reload(true)
 	})
 	
 		}

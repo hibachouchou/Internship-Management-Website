@@ -1,22 +1,13 @@
-import {  useContext } from "react";
+
 import { NavLink } from 'react-router-dom';
-import AuthContext2 from "./Enseigant/AuthContexe";
-import AuthContext from "./User/AuthContexe";
+
 
 
 export default function Footer(){
-    const authContexe=useContext(AuthContext)
-    //console.log(authContexe)
-    const CheckConnection=authContexe.SetConnect
-    //console.log(CheckConnection)
-    const Connection=authContexe.Connect
-
-
-    const authContexe2=useContext(AuthContext2)
-//console.log(authContexe)
-const CheckConnection2=authContexe2.SetConnection
-//console.log(CheckConnection2)
-const Connection2=authContexe2.Connection
+    const user1=JSON.parse(localStorage.getItem("user"))
+    const ens=JSON.parse(localStorage.getItem("ens"))
+    const connection1=localStorage.getItem("connection1")
+    const connection2=localStorage.getItem("connection2")
  
         return (
             <div>
@@ -48,14 +39,14 @@ const Connection2=authContexe2.Connection
                             <div className="col-md-4 mb-5">
                                 <h3 className="text-white mb-4">Nos Services</h3> 
                                  <div className="d-flex flex-column justify-content-start">
-                                {Connection &&  !Connection2 &&  <> <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Stages"><i className="fa fa-angle-right mr-2"></i>Gestion Stages</NavLink>
+                                {connection1==="true" &&  connection2==="false" && !ens && user1 &&  <> <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Stages"><i className="fa fa-angle-right mr-2"></i>Gestion Stages</NavLink>
                                  <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/CahierCharge"><i className="fa fa-angle-right mr-2"></i>Gestion Cahier de charge</NavLink>
                                     <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Validation"><i className="fa fa-angle-right mr-2"></i>Gestion demande d'encadrement</NavLink>
                                     <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/CV"><i className="fa fa-angle-right mr-2"></i>Gestion CV</NavLink>
                                     <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/"><i className="fa fa-angle-right mr-2"></i>Integration</NavLink></> }
                               
-{!Connection && !Connection2 && <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Login_Ensignant"><i className="fa fa-angle-right mr-2"></i>Pour Enseignant</NavLink>}
-{Connection && Connection2 && <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Login_Ensignant"><i className="fa fa-angle-right mr-2"></i>Pour Enseignant</NavLink>}                                
+{connection1==="false" &&  connection2==="false" && !ens && !user1 && <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Login_Ensignant"><i className="fa fa-angle-right mr-2"></i>Pour Enseignant</NavLink>}
+{connection1==="true" &&  connection2==="true" && ens && user1 && <NavLink style={{textDecoration:'none'}} className="text-white-50 mb-2" to="/Login_Ensignant"><i className="fa fa-angle-right mr-2"></i>Pour Enseignant</NavLink>}                                
 
                                 </div>
                             </div>

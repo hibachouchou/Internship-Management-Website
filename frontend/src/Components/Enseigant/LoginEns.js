@@ -81,11 +81,13 @@ export default function Login2() {
                 
                   SetAuthentification2(res.data.token,res.data.ens)
                   if(isAuth){
+                    window.localStorage.setItem("token1", res.data.token)
+                    window.localStorage.setItem("ens1", JSON.stringify(res.data.ens))
                     console.log("Welcome Enseigant")
                     CheckConnection(true)
-                    localStorage.setItem('connection1', false);
+                    localStorage.setItem('connection1', "false");
                     CheckConnection2(false)
-                    localStorage.setItem('connection2', true);
+                    localStorage.setItem('connection2', "true");
                     navigator("/Home")
 
                   }

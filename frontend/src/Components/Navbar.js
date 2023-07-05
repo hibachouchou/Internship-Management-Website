@@ -1,6 +1,4 @@
-//import { Component } from "react";
 import { NavLink, Route ,Routes} from 'react-router-dom';
-import Home from './Home';
 import DemandeStage from './User/DemandeStage'
 import Validation1 from "./User/DemandeEncadrement";
 import CahierDeCharge from "./User/CahierDeCharge";
@@ -14,14 +12,12 @@ import ProfileEtude from './User/Profile';
 import Contact from './Contact';
 import ProfileEnseign from './Enseigant/ProfileEns';
 import { useEffect } from 'react';
-
-import { isConnected, logout } from '../Helpers/User/AuthHelper';
-import { useContext } from 'react';
-import AuthContext from './User/AuthContexe';
+import { logout } from '../Helpers/User/AuthHelper';
 import UserRoute from './User/AlertProtection';
-import AuthContext2 from './Enseigant/AuthContexe';
-import { isAuth, logout2 } from '../Helpers/Ens/AuthHelper';
+import { logout2 } from '../Helpers/Ens/AuthHelper';
 import CahierChargeByID from './Enseigant/CahierDeChargebyID';
+import Home from './Home';
+
 
 
 
@@ -30,20 +26,13 @@ export default function Navbar() {
  
  const user1=JSON.parse(localStorage.getItem("user"))
  const ens=JSON.parse(localStorage.getItem("ens"))
-const authContexe=useContext(AuthContext)
-//console.log(authContexe)
-const CheckConnection=authContexe.SetConnect
-//console.log(CheckConnection)
-const Connection=authContexe.Connect
-console.log("Etat Connexion user :",Connection)
+ const connection1=localStorage.getItem("connection1")
+ const connection2=localStorage.getItem("connection2")
 
 
-const authContexe2=useContext(AuthContext2)
-//console.log(authContexe)
-const CheckConnection2=authContexe2.SetConnection
-//console.log(CheckConnection2)
-const Connection2=authContexe2.Connection
-console.log("Etat Connexion enseignant :",Connection2)
+
+
+
 
 
 
@@ -51,33 +40,25 @@ console.log("Etat Connexion enseignant :",Connection2)
     const navigator = useNavigate();
     function handleClick() {
         navigator('/Login');
-
     }
    
 
 
 
  useEffect(()=>{
-  if(Connection){
-  //  localStorage.setItem('connection1', true);
-   // localStorage.setItem('connection2', false);
+  if(connection1==="true"){
     console.log("User Connectee")
  
   }else{
-
-  // localStorage.setItem('connection1', false);
     console.log("User Hors Connexion")
 
   }
 
 
-  if(Connection2){
-        //localStorage.setItem('connection2', true);
-      //  localStorage.setItem('connection1', false);
+  if(connection2==="true"){
     console.log("Enseignant Connectee")
  
   }else{
-   // localStorage.setItem('connection2', false);
     console.log("Enseignant Hors Connexion")
 
   }
@@ -92,35 +73,53 @@ console.log("Etat Connexion enseignant :",Connection2)
         
 
     }
-  async  function Logout(){
- 
-console.log("User Hors Connection")
-CheckConnection(false)
-CheckConnection2(false)
-logout(()=>{
-    navigator("/Home")
-})
-
-    }
+    async function Logout() {
+        console.log("User Hors Connection");
+      
+        // Clear local storage
+        localStorage.clear();
+      
+        // Clear cookies
+        document.cookie.split(";").forEach(function (c) {
+          document.cookie = c
+            .replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+        });
+        localStorage.setItem('connection1', "false");
+        localStorage.setItem('connection2', "false");
+        logout2(() => {
+          navigator("/");
+        });
+      }
+      
 
 
     async  function Logout2(){
  
         console.log("Enseignant Hors Connection")
-        CheckConnection2(false)
-        CheckConnection(false)
-        logout2(()=>{
-            navigator("/Home")
-        })
+        // Clear local storage
+        localStorage.clear();
+      
+        // Clear cookies
+        document.cookie.split(";").forEach(function (c) {
+          document.cookie = c
+            .replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+        });
+        localStorage.setItem('connection1', "false");
+        localStorage.setItem('connection2', "false");
+        logout(() => {
+          navigator("/Home");
+        });
       
             }
     return (
         <div>
 
 <div className="container-fluid p-0">
-{Connection  && !Connection2 ?
+{connection1==="true"  && connection2==="false" && user1 && !ens ?
   <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-                    <NavLink to="/" className="navbar-brand ml-lg-3">
+                    <NavLink to="/Home" className="navbar-brand ml-lg-3">
                         <h1 className="m-0 text-uppercase text-primary"><i className="fa fa-book-reader mr-3"></i>ISET Nabeul</h1>
                     </NavLink>
                     <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -150,11 +149,11 @@ logout(()=>{
                        
                     </div>
 
-                </nav> : !Connection && Connection2 ?
+                </nav> : connection1==="false" && connection2==="true" && ens && !user1 ?
                 
               
 <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-    <NavLink to="/" className="navbar-brand ml-lg-3">
+    <NavLink to="/Home" className="navbar-brand ml-lg-3">
         <h1 className="m-0 text-uppercase text-primary"><i className="fa fa-book-reader mr-3"></i>ISET Nabeul</h1>
     </NavLink>
     <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -182,7 +181,7 @@ logout(()=>{
 </nav>
 :
 <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-<NavLink to="/" className="navbar-brand ml-lg-3">
+<NavLink to="Home/" className="navbar-brand ml-lg-3">
     <h1 className="m-0 text-uppercase text-primary"><i className="fa fa-book-reader mr-3"></i>ISET Nabeul</h1>
 </NavLink>
 <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -216,7 +215,7 @@ logout(()=>{
         
             </div>
             <Routes>
-                <Route exact path='/Home'  element={<Home />} />
+                <Route exact path='/Home'  element={<Home/>}/>
                 <Route path='/Stages' exact element={<DemandeStage />} />
                 <Route path='/Validation' exact element={<Validation1 />} />
                 <Route path='/CahierCharge' exact element={<CahierDeCharge />} />
@@ -229,6 +228,7 @@ logout(()=>{
                 <Route exact path='/Contact' element={<Contact/>} />
                 <Route exact path='/ProfileEns/:id' element={<ProfileEnseign />} />
                 <Route path='/*' element={<p>404 : Page not found</p>} />
+                <Route path='/' element={<p></p>} />
                 <Route path='/userNotConnected' element={<UserRoute/>} />
                 <Route path='/CahierDeChargeDetails/:id' element={<CahierChargeByID/>} />
             </Routes>

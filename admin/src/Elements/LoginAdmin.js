@@ -8,7 +8,6 @@ export default function LoginAdmin(){
 
     const authContexe=useContext(AuthContext)
     const CheckConnection=authContexe.SetConnect
-    const Connection=authContexe.Connect
     const navigator = useNavigate();
     const[WaitingServer,SetWaitingServer]=useState(false)
     const[Finish,SetFinish]=useState(false)
@@ -77,7 +76,9 @@ export default function LoginAdmin(){
                   if(isConnected){
                     console.log("Welcome Admin")
                     CheckConnection(true)
+                    localStorage.setItem('connection3', "true");
                     navigator('/Home')
+                    window.location.reload(true)
 
                   }
                 }
@@ -104,7 +105,7 @@ export default function LoginAdmin(){
             }
         },4000);
         }
-        if(!Connection){
+       
            return(
         <div>
 			               
@@ -170,10 +171,6 @@ export default function LoginAdmin(){
                        
         </div>
     )   
-        }else{
-            return(
-                <div></div>
-            )
-        }
+       
   
 }

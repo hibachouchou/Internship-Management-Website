@@ -13,13 +13,6 @@ app.use(cors({
   credentials:true
 }))
 
-
-
-
-
-
-
-
 //connexion à la base donnees
 mongoose.connect('mongodb://localhost:27017/projetwalid',{
     useUnifiedTopology:true,

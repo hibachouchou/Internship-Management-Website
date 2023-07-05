@@ -79,17 +79,16 @@ export default function Login() {
                       email: "",
                       password1: ""
                   })
-               
-                
+                  window.localStorage.setItem("token", res.data.token)
+                  window.localStorage.setItem("user1", JSON.stringify(res.data.user))
                   SetAuthentification(res.data.token,res.data.user)
                   if(isConnected){
                     console.log("Welcome User")
                     CheckConnection(true)
-                    localStorage.setItem('connection1', true);
+                    localStorage.setItem('connection1', "true");
                     CheckConnection2(false)
-                  // navigator(`/ProfileEtud/${idUser}`)
-                    localStorage.setItem('connection2', false);
-                  navigator('/Home')
+                    localStorage.setItem('connection2', "false");
+                    navigator('/Home')
 
                   }
                 }

@@ -20,7 +20,7 @@ router.post("/",async (req,res)=>{
 
    const ensexist= await Enseigant.findOne({email})
     if(ensexist){
-   const passwordCorrect=await bycrypt.compareSync(password1,userexist.password)
+      const passwordCorrect = await bycrypt.compareSync(password1, ensexist.password);
    if(passwordCorrect){
    //if(password===ensexist.password){
     console.log("Bienvinue Enseigant") 

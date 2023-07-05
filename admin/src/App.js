@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Route, Routes } from "react-router";
-import AuthContext from "./Elements/AuthContexe";
 import React from "react";
 import Home from "../src/Elements/Pages/Home"
 import MenuBar from "./Elements/MenuBar";
@@ -19,19 +17,22 @@ import SocieteById from "../src/Elements/Pages/SocieteById"
 import ListeCVs from "../src/Elements/Pages/CVs"
 import ListeChaierDeCharges from "../src/Elements/Pages/ListeCahierDeCharges"
 import Contacts from "./Elements/Pages/Contacts";
+import Layout from "./Layout";
 function App () {
-  const authContexe=useContext(AuthContext)
-   const CheckConnection=authContexe.SetConnect
-    const Connection=authContexe.Connect
+  const admin=localStorage.getItem("admin")
+  const connection3=localStorage.getItem("connection3")
+
+
     return (
     <div>
-      <LoginAdmin/>
-      <MenuBar/>
+   {admin && connection3==="true" && <MenuBar/> }
+   {!admin  && <LoginAdmin/>}
+   
 <Routes>
+   <Route exact path='/' element={<Layout />} />
    <Route exact path='/Home'  element={<Home />} />
    <Route exact path='/Profile'  element={<Profile/>} />
    <Route exact path='/Logout'  element={<Logout/>} />
-   <Route exact path='/ConnexionAdmin'  element={<LoginAdmin/>} />
    <Route exact path='/ListeProfs'  element={<ListeProfs/>} />
    <Route exact path='/DemandesDeStage'  element={<ListeDemandesStage/>} />
    <Route exact path='/DemandeEncadrement'  element={<ListeDemandesEncadrements/>} />

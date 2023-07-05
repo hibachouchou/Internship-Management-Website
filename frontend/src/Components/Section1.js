@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { BrowserRouter, NavLink, Routes } from 'react-router-dom';
-//import { render } from '@testing-library/react';
 import img from '../img/courses-1.jpg'
 import img1 from '../img/courses-2.jpg'
 import img2 from '../img/courses-5.jpg'

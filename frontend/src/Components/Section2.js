@@ -1,30 +1,21 @@
-
 import { StyledFormButton } from './Styles';
 import { useNavigate } from "react-router-dom";
 import img from '../img/about.jpg';
 import img1 from '../img/feature.jpg'
 import { useEffect } from 'react';
 
-import { isConnected } from '../Helpers/User/AuthHelper';
-import { useContext } from 'react';
-import AuthContext from './User/AuthContexe';
-import AuthContext2 from './Enseigant/AuthContexe';
+
 import { isAuth } from '../Helpers/Ens/AuthHelper';
 
 
 
 export default function Section2() {
+
     const navigator = useNavigate();
-
-    const authContexe=useContext(AuthContext)
-    const Connection=authContexe.Connect
-    const CheckConnection=authContexe.SetConnect
-    console.log("Etat Connexion 1",Connection)
-
-    const authContexe2=useContext(AuthContext2)
-    const Connection2=authContexe2.Connection
-    const CheckConnection2=authContexe2.SetConnection
-    console.log("Etat Connexion 2 ",Connection2)
+    const connection1=localStorage.getItem("connection1")
+    const connection2=localStorage.getItem("connection2")
+    const user1=JSON.parse(localStorage.getItem("user"))
+    const ens=JSON.parse(localStorage.getItem("ens"))
 
     function handleClick() {
         navigator('/Stages');
@@ -39,25 +30,18 @@ export default function Section2() {
 
     }
     useEffect(()=>{
-        if(isConnected){
-           // CheckConnection(true)
-           // CheckConnection2(false)
+        if(connection1==="true"){
           console.log("User Connectee")
        
         }else{
-           // CheckConnection(false)
-  
           console.log("User Hors Connexion")
       
         }
 
         if(isAuth){
-         //   CheckConnection(false)
-         //   CheckConnection2(true)
             console.log("Enseignant Connectee")
          
           }else{
-         //   CheckConnection2(false)
             console.log("Enseignant Hors Connexion")
         
           }
@@ -86,7 +70,7 @@ export default function Section2() {
                     </div>
                 </div>
             </div>
-            {/**  Section 2 */}
+   
 
 
        
@@ -136,13 +120,10 @@ export default function Section2() {
         </div>
     </div>
   
-{Connection &&  !Connection2 && <div className="container-fluid py-5">
+{connection1==="true" &&  connection2==="false" && user1 && !ens  &&<div className="container-fluid py-5">
                 <div className="container py-5">
                     <div className="section-title text-center position-relative mb-5">
-                        {/**
-                   <h1 className="d-inline-block position-relative text-secondary text-uppercase pb-2">Nos Services</h1>
-                
-                 */}<h1 className="display-4">Nos Services</h1>
+               <h1 className="display-4">Nos Services</h1>
 
                     </div>
                     <div className="owl-carousel team-carousel position-relative" style={{ padding: '0 30' }}>

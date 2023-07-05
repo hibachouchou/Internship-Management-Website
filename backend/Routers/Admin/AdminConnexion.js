@@ -20,7 +20,7 @@ router.post("/",async (req,res)=>{
 
    const adminexist= await Admin.findOne({email})
     if(adminexist){
-   const passwordCorrect=await bycrypt.compareSync(password1,userexist.password)
+   const passwordCorrect=await bycrypt.compareSync(password1,adminexist.password)
    if(passwordCorrect){
     //if(password===adminexist.password){
     console.log("Bienvinue Admin") 

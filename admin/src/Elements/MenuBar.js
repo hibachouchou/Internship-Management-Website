@@ -1,33 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { isConnected } from "../Helpers/Admin/AuthHelper";
-import AuthContext from "./AuthContexe";
 
 
 
 export default function MenuBar(){
-	const authContexe=useContext(AuthContext)
-//console.log(authContexe)
-const CheckConnection=authContexe.SetConnect
-//console.log(CheckConnection)
-const Connection=authContexe.Connect
-console.log("Etat Connexion user :",Connection)
- 
-//const admin=JSON.parse(localStorage.getItem("admin"))
-//console.log(admin)
+
+
+
 useEffect(()=>{
-	if(isConnected){
-	// CheckConnection(true)
-	  console.log("User Connectee")
-   
-	}else{
-   //   CheckConnection(false)
-	  console.log("User Hors Connexion")
-  
-	}
 },[])
   
-if(Connection){
+
 return(<div>
 
             <div className="sidebar" id="sidebar">
@@ -41,7 +24,7 @@ return(<div>
 							</li>
 
                             <li className="active"> 
-								<NavLink to="/Home"  style={{textDecoration:'none'}}><i className="fe fe-home"></i> <span>Dashboard Home</span></NavLink>
+								<NavLink to="/Home"  style={{textDecoration:'none'}}><i className="fe fe-home"></i> <span>Dashboard </span></NavLink>
 							</li>
                             <li> 
 								<NavLink to="/Profile" style={{textDecoration:'none'}}><i className="fe fe-user"></i> <span>Profil</span></NavLink>
@@ -91,10 +74,6 @@ return(<div>
 
             
 )	
-}else{
-	return(
-		<div></div>
-	)
-}
+
 
 }
