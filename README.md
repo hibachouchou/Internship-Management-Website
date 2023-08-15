@@ -1,9 +1,11 @@
 # Projet MERN Stack
  # Site de gestion des stages pfe des étudiants de departement TI ISETN
-L'étudiant 🎓 s'authentifie puis il remplit ses informations , les informations de son binôme et les informations de l'entreprise après il remplit la cahier de charges et enfin il choisit son encadrant universitaire . Aussi il peut créer un cv 
-et consulter l'état de validation de cahier de charges et de demande d'encadrement.
-L'enseignant s'authentifie et consulte les demandes d'encadrement et les valider (accepter ou refuser ).
-L'administrateur consulte ( la liste des enseignants, les demandes de stages et leurs détails, les cahiers de charges et les valider (valide , non valide ) , les demandes d'encadrement et les valider (accepter ou refuser) , les cv et gérer les soutenances (date , salle , heure et choix de communité de stage ) .
-NB : L'état de demandes d'encadrement => vert : accepté = validé par l'enseignant et l'admin , jaune : en cours de traitement = l'enseignant accepte mais l'admin pas encore , rouge : refusé soit par l'admin ou l'enseignant.
-L'état de cahier de charges => vert : accepté = validé par l'admin et rouge : refusé .
-Dans le cas de refus : L'étudiant doit essayerai l'étape de remplissage de cahier de charges ou de demande d'encadrement. 
+- The student 🎓 logs in, then fills in his information, his teammate's information, and the company's information. Next, he completes the specifications document and chooses his university supervisor. He can also create a CV and check the status of the specifications document and supervision request.
+
+-The teacher logs in and reviews the supervision requests. He can approve them (accept or reject).
+
+-The administrator reviews the list of teachers, internship requests with their details, specifications documents, and approves them (valid or not valid). He also reviews the supervision requests and approves them (accept or reject). He also manages the presentations (date, room, time, and selection of the internship committee).
+
+*Note: State of supervision requests => green: accepted = approved by the teacher and the administrator, yellow: in progress = approved by the teacher but not yet approved by the administrator, red: rejected by either the administrator or the teacher.
+State of the specifications document => green: accepted = approved by the administrator, and red: rejected.
+In case of rejection: the student must try the step of filling out the specifications document or the supervision request.
