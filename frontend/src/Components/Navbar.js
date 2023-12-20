@@ -109,7 +109,7 @@ export default function Navbar() {
         localStorage.setItem('connection1', "false");
         localStorage.setItem('connection2', "false");
         logout(() => {
-          navigator("/Home");
+          navigator("/");
         });
       
             }
@@ -119,7 +119,7 @@ export default function Navbar() {
 <div className="container-fluid p-0">
 {connection1==="true"  && connection2==="false" && user1 && !ens ?
   <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-                    <NavLink to="/Home" className="navbar-brand ml-lg-3">
+                    <NavLink to="/" className="navbar-brand ml-lg-3">
                         <h1 className="m-0 text-uppercase text-primary"><i className="fa fa-book-reader mr-3"></i>ISET Nabeul</h1>
                     </NavLink>
                     <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -127,10 +127,10 @@ export default function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                         <div className="navbar-nav mx-auto py-0">
-                <NavLink to="/Home" className="nav-item nav-link active">Accueil</NavLink>
+                <NavLink to="/" className="nav-item nav-link active">Accueil</NavLink>
                         
                            <div className="nav-item dropdown">
-                                <NavLink to="/Home " className="nav-link dropdown-toggle" data-toggle="dropdown">Services</NavLink>
+                                <NavLink to="/ " className="nav-link dropdown-toggle" data-toggle="dropdown">Services</NavLink>
                                 <div className="dropdown-menu m-0">
                                     <NavLink to="/Stages" className="dropdown-item">Gestion Stages</NavLink>
                                     <NavLink to="/CV" className="dropdown-item">Gestion CV</NavLink>
@@ -153,7 +153,7 @@ export default function Navbar() {
                 
               
 <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-    <NavLink to="/Home" className="navbar-brand ml-lg-3">
+    <NavLink to="/" className="navbar-brand ml-lg-3">
         <h1 className="m-0 text-uppercase text-primary"><i className="fa fa-book-reader mr-3"></i>ISET Nabeul</h1>
     </NavLink>
     <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -161,7 +161,7 @@ export default function Navbar() {
     </button>
     <div className="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
         <div className="navbar-nav mx-auto py-0">
-            <NavLink to="/Home" className="nav-item nav-link active">Accueil</NavLink>
+            <NavLink to="/" className="nav-item nav-link active">Accueil</NavLink>
         
             
            
@@ -181,7 +181,7 @@ export default function Navbar() {
 </nav>
 :
 <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-<NavLink to="Home/" className="navbar-brand ml-lg-3">
+<NavLink to="/" className="navbar-brand ml-lg-3">
     <h1 className="m-0 text-uppercase text-primary"><i className="fa fa-book-reader mr-3"></i>ISET Nabeul</h1>
 </NavLink>
 <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -189,7 +189,7 @@ export default function Navbar() {
 </button>
 <div className="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
     <div className="navbar-nav mx-auto py-0">
-        <NavLink to="/Home" className="nav-item nav-link active">Accueil</NavLink>
+        <NavLink to="/" className="nav-item nav-link active">Accueil</NavLink>
     <NavLink to="/SigneIn_Ensignant" className="nav-item nav-link">Pour enseignant</NavLink>
         
        
@@ -215,7 +215,7 @@ export default function Navbar() {
         
             </div>
             <Routes>
-                <Route exact path='/Home'  element={<Home/>}/>
+                <Route exact path='/'  element={<Home/>}/>
                 <Route path='/Stages' exact element={<DemandeStage />} />
                 <Route path='/Validation' exact element={<Validation1 />} />
                 <Route path='/CahierCharge' exact element={<CahierDeCharge />} />
@@ -228,7 +228,7 @@ export default function Navbar() {
                 <Route exact path='/Contact' element={<Contact/>} />
                 <Route exact path='/ProfileEns/:id' element={<ProfileEnseign />} />
                 <Route path='/*' element={<p>404 : Page not found</p>} />
-                <Route path='/' element={<p></p>} />
+                {/* <Route path='/' element={<p></p>} /> */}
                 <Route path='/userNotConnected' element={<UserRoute/>} />
                 <Route path='/CahierDeChargeDetails/:id' element={<CahierChargeByID/>} />
             </Routes>
