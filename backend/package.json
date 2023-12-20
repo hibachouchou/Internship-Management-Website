@@ -4,7 +4,6 @@
   "description": "MERN STACK APPLICATION DE GESTION PFE HIBA",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "dev": "nodemon index"
   },

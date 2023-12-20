@@ -14,3 +14,5 @@ State of supervision requests =>
 State of the specifications document => 
 - green: accepted = approved by the administrator, and red: rejected.
 In case of rejection: the student must try the step of filling out the specifications document or the supervision request.
+##
+![Internship Management Website](internship-management.png)
